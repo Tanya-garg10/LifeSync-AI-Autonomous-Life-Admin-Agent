@@ -1,0 +1,57 @@
+{
+  "entities": {
+    "Task": {
+      "title": "Task",
+      "description": "A user lifelog task",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "deadline": { "type": "string" },
+        "priority": { "type": "string", "enum": ["low", "medium", "high"] },
+        "status": { "type": "string", "enum": ["pending", "completed"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "createdAt"]
+    },
+    "Memory": {
+      "title": "Memory",
+      "description": "A personal preference, schedule or context record for LifeSync AI",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "key": { "type": "string" },
+        "value": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["key", "value", "updatedAt"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "A chat message in the conversation history",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "sender": { "type": "string", "enum": ["user", "model"] },
+        "text": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["sender", "text", "timestamp"]
+    }
+  },
+  "firestore": {
+    "tasks": {
+      "schema": "Task",
+      "description": "User tasks and schedule deadlines"
+    },
+    "memory": {
+      "schema": "Memory",
+      "description": "Grounding memories and lifestyle preferences"
+    },
+    "chats": {
+      "schema": "ChatMessage",
+      "description": "Chat transcript messages between the user and model"
+    }
+  }
+}

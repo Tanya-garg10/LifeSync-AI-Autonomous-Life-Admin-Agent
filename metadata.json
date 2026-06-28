@@ -1,0 +1,6 @@
+{
+  "name": "LifeSync AI",
+  "description": "An autonomous life admin agent that acts as a smart task manager, planner, and personal memory bank.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
